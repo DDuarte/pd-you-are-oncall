@@ -1,0 +1,2 @@
+PAGERDUTY_API_KEY=your-pagerduty-rest-api-token
+SLACK_WEBHOOK_URLS={"PXXXXXXX":{"webhookUrl":"https://hooks.slack.com/services/AAA/BBB/CCC","channel":"backend-oncall"},"PYYYYYYY":{"webhookUrl":"https://hooks.slack.com/services/DDD/EEE/FFF"}}

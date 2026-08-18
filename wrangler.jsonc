@@ -1,0 +1,31 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "pd-you-are-oncall",
+	"main": "src/index.ts",
+	"compatibility_date": "2026-08-14",
+	"observability": {
+		"enabled": true,
+		"head_sampling_rate": 1
+	},
+	// Runs every 5 minutes to check for on-call changes on each configured schedule.
+	"triggers": {
+		"crons": [
+			"*/5 * * * *"
+		]
+	},
+	// Stores the last-known on-call user per schedule, so we only notify on change.
+	"kv_namespaces": [
+		{
+			"binding": "ONCALL_STATE",
+			"id": "<KV_NAMESPACE_ID>"
+		}
+	],
+	// Which schedules to watch is derived entirely from the keys of the SLACK_WEBHOOK_URLS
+	// secret (schedule ID -> webhook URL). Schedule names are fetched live from PagerDuty.
+	"secrets": {
+		"required": [
+			"PAGERDUTY_API_KEY",
+			"SLACK_WEBHOOK_URLS"
+		]
+	}
+}

@@ -1,0 +1,23 @@
+{
+  "name": "pd-you-are-oncall",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Notifies Slack when someone starts a PagerDuty on-call shift.",
+  "type": "module",
+  "scripts": {
+    "dev": "wrangler dev --test-scheduled",
+    "deploy": "wrangler deploy",
+    "types": "wrangler types",
+    "check": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "26.2.0",
+    "typescript": "7.0.2",
+    "wrangler": "4.123.0"
+  },
+  "allowScripts": {
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true,
+    "workerd@1.20260811.1": true
+  }
+}
